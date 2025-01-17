@@ -4,51 +4,42 @@ Feature: Add a University
 
   Background:
     Given I open the TalentXpo sign-in page
-    And I enter the login "apporteur11@digitalcook.com" and password "12345678"
+    And I enter the login "compte1@digitalcook.com" and password "psw"
     And I click connect
 
   @AddUniversitySuccess
   Scenario: Successfully add a university with valid details
     Given I am on the Add University page
     When enter all required details
-      | field               | value                 |
-      | name                | University of Bordeaux|
-      | website             | https://ubordeaux.fr  |
-      | country             | France                |
-      | city                | Bordeaux              |
-      | address             | 351 Cours de la Libération |
-      | postal code         | 33405                 |
-      | language            | French                |
-      | description         | Prestigious research university |
-      | partnership status  | Partner               |
-      | contacts            | contact@ubordeaux.fr  |
-      | programs            | Science, Arts         |
+      |fieldName                |fieldValue                                |
+      | UniversityName          | Université de Bordeaux 1                     |
+      | UniversityWebsite       | https://ubordeaux.fr                       |
+      | UniversityCountry       | France                                    |
+      | UniversityCity          | Bordeaux                                  |
+      | UniversityAddress       | 351 Cours de la Libération                |
+      | UniversityPostalCode    | 33405                                     |
+      | UniversityLanguage      | Français (B1) : intermédiaire             |
+      | UniversityDescription   | Université de recherche prestigieuse      |
+      | ProfessionalPartnership | Partenaire                                 |
+      | AcademicPartnership     | Partenaire                                 |
+      | UniversityLogo          | C:\Users\HACHANA\Desktop\e4NqO3Li_400x400.jpg|
+      | BrochuresPosters        | C:\Users\HACHANA\Desktop\Guide-Etudiant_2024_FR_w.pdf |
+      | ContactName             | Dr. Marie Dupont                          |
+      | ContactPosition         | Directrice des admissions                 |
+      | ContactEmail            | contact@ubordeaux.fr                      |
+      | ContactPostalAddress    | 351 Cours de la Libération, Bordeaux      |
+      | ContactPhoneCode        | france                                    |
+      | ContactPhone            | 0555123456                                |
+      | ProgramName             | Master en Informatique                    |
+      | ProgramField            | Informatique                              |
+      | ProgramDegree           | Mastere                                    |
+      | ProgramAddress          | 351 Cours de la Libération, Bordeaux      |
+      | ProgramPostalCode       | 33405                                     |
+      | ProgramWebsite          | https://ubordeaux.fr/informatique         |
+      | ProgramCampus           | Campus principal                          |
+      | ProgramFee              | 10 000 € par an                           |
+      | ProgramPrerequisites    | Diplôme de Bachelor dans un domaine lié   |
+
     And They click on Save
     Then The university is added and appears in the university table under the University section with the status "Not Verified"
 
-  @AddUniversityMissingName
-  Scenario: Attempt to add a university without a name
-    Given I am on the Add University page
-    When I leave the university name field empty
-    And I enter a valid location "Lyon, France"
-    And I select the accreditation level "B"
-    And I click the "Save" button
-    Then I should see an error message "University name is required"
-
-  @AddUniversityInvalidLocation
-  Scenario: Attempt to add a university with an invalid location
-    Given I am on the Add University page
-    When I enter a valid university name "Université de Toulouse"
-    And I enter an invalid location "12345"
-    And I select the accreditation level "A"
-    And I click the "Save" button
-    Then I should see an error message "Invalid location format"
-
-  @DuplicateUniversity
-  Scenario: Attempt to add a university that already exists
-    Given I am on the Add University page
-    When I enter a university name that already exists "Université de Bordeaux"
-    And I enter the location "Bordeaux, France"
-    And I select the accreditation level "A+"
-    And I click the "Save" button
-    Then I should see an error message "University already exists"

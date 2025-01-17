@@ -9,8 +9,8 @@ Feature: Sign in to TalentXpo
 
     Examples:
       | title                                        | log_in                  | password |
-      | Test Case for Login with Valid Credentials   | agence3@digitalcook.com | 12345678 |
-      | Test Case for Login with Invalid Credentials | agen@digitalcook.com    | 87654321 |
+      | Test Case for Login with Valid Credentials   | agence3@digitalcook.com | psw      |
+      | Test Case for Login with Invalid Credentials | agen@digitalcook.com    | psw      |
       | Test Case for Login with Empty Fields        |                         |          |
 
 

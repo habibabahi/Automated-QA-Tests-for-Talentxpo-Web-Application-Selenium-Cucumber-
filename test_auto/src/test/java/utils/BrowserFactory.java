@@ -24,7 +24,8 @@ public class BrowserFactory {
                 options1.addArguments("--ignore-certificate-errors");
                 options1.addArguments("--disable-popup-blocking");
                 options1.addArguments("--incognito");
-                options1.addArguments("--headless");
+                //options1.addArguments("--headless");
+
                 // Initialisation du WebDriver en tant qu'instance de ChromeDriver pour ouvrir le navigateur Chrome.
                 factoryDriver = new ChromeDriver(options1);
                 break;
