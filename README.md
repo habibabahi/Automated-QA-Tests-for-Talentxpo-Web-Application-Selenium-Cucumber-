@@ -5,6 +5,7 @@ This repository contains an automated testing framework for the Talentxpo web ap
 
 # Key Highlights:
 Objective: Ensure the quality of the Talentxpo web application through automated testing.
+
 Technologies Used:
 Selenium WebDriver for automating UI interactions.
 Cucumber for structuring test scenarios in Gherkin language.
